@@ -1,54 +1,65 @@
-# DL for NLP - Attention Mechanisms
+# Deep Learning for NLP - Attention Mechanisms
 
-This repository contains the implementation of **Exercise 04** for the "Deep Learning for NLP" course. The exercise focuses on implementing various attention mechanisms for NLP tasks, including Bahdanau and Luong attention models, within sequence-to-sequence frameworks. The task explores alignment-based techniques to improve sequence modeling.
+This repository contains the implementation of Exercise 04 for the **Deep Learning for NLP** course. The assignment explores transformer-based models, focusing on visualizing attention mechanisms and evaluating decoding strategies. This work adheres strictly to the guidelines and provided templates by the instructors.
 
-## Overview
+## Project Overview
 
-The project includes the following:
-1. **Bahdanau Attention Mechanism**:
-   - Implements additive attention.
-   - Evaluates its impact on sequence-to-sequence translation tasks.
-2. **Luong Attention Mechanism**:
-   - Implements dot-product attention.
-   - Comparison of its effectiveness against Bahdanau attention.
-3. **Custom Seq2Seq Architecture**:
-   - Encoder-decoder architecture with GRU-based RNNs.
-   - Attention module integrated into the decoder for context vector calculation.
+The assignment consists of two main tasks:
 
-This repository adheres to the course submission guidelines and retains the original structure provided by the instructors.
+### Task 1: Visualizing Attention Mechanisms
 
-## My Contributions
+- **Objective**: Analyze the attention maps of randomly initialized BERT, pretrained BERT, and GPT-2 models.
+- **Instructor Contributions**: Provided guidance on model initialization, tokenization, and visualization frameworks.
+- **Student Contributions**:
+  - Implemented scripts for processing token sequences and extracting attention outputs.
+  - Visualized attention maps using `bertviz`'s `model_view` and `head_view`.
+  - Compared hierarchical patterns, redundancy, and interpretability between BERT and GPT-2 models.
 
-The provided structure included the high-level task description and some starter code. My key contributions include:
-- Implementation of the Bahdanau and Luong attention mechanisms.
-- Integration of attention modules into the Seq2Seq architecture.
-- Custom training loop with early stopping to prevent overfitting.
-- Model evaluation using BLEU scores for translation quality assessment.
+### Task 2: Decoding Strategies
 
-## Key Features
+- **Objective**: Compare multiple decoding algorithms on the same model and prompt to analyze their impact on text quality.
+- **Instructor Contributions**: Provided sample prompts and basic decoding setups.
+- **Student Contributions**:
+  - Extended the decoding analysis by implementing and evaluating additional strategies.
+  - Quantified differences in generated text based on entropy and other metrics.
 
-### Bahdanau Attention
-- Additive attention mechanism designed to compute alignment scores.
-- Context vector calculated as a weighted sum of encoder outputs.
-- Allows the decoder to focus on relevant parts of the input sequence.
+## Repository Structure
 
-### Luong Attention
-- Dot-product attention mechanism that simplifies alignment computation.
-- General attention variant used to compute context vectors.
-- Enhanced computational efficiency compared to additive attention.
+- **Instructor Setup**:
+  - Baseline configurations for models and datasets.
+  - Scripts for ensuring compliance with exercise guidelines.
 
-### Seq2Seq Architecture
-- **Encoder**: GRU-based RNN processes input sequences into hidden states.
-- **Decoder**: GRU-based RNN uses context vectors from attention mechanisms for decoding.
-- **Attention Mechanisms**: Integrated into the decoder for context-aware predictions.
+- **Student Additions**:
+  - Extensions to model analysis.
+  - Custom visualizations and entropy-based evaluations.
+  - Detailed observations and interpretations for each task.
 
-### Training and Evaluation
-- Custom training loop implemented with:
-  - Cross-entropy loss.
-  - Optimizer: Adam with a learning rate scheduler.
-- Evaluation metrics:
-  - BLEU scores to assess translation quality.
-  - Per-sequence alignment analysis to visualize attention weights.
+## Observations and Insights
+
+### Task 1: Attention Mechanisms
+
+- **Randomly Initialized BERT**: Exhibits uniform attention patterns across tokens.
+- **Pretrained BERT**: Captures complex relationships and attends to global structures in higher layers.
+- **GPT-2**: Focuses on causal dependencies, with heads specializing in syntactic or positional relationships.
+
+### Task 2: Decoding Strategies
+
+- **Entropy Analysis**: Demonstrates how certain heads exhibit high entropy, capturing broader contexts, while others focus narrowly.
+- **Decoding Comparisons**: Highlights the trade-offs between text diversity and coherence using various algorithms.
+
+## Key Visualizations
+
+- Attention heatmaps for BERT and GPT-2 models.
+- Entropy trends across layers and heads, visualized interactively using Plotly.
+- Comparative plots of decoding outputs.
+
+## Guidelines and Compliance
+
+This work strictly follows the instructor's directives, including:
+
+- Using the provided imports and frameworks.
+- Maintaining compatibility with the environment file.
+- Adhering to naming conventions and submission formats.
 
 ## Requirements
 - matplotlib==3.7.1
